@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6ee0f18bef2a7624aa5fe5b9810d823b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - deadEnemy: {fileID: 21300000, guid: 73fa5f80d4ddd4196b767cc01c1b5c68, type: 3}
+  - hurtedEnemy: {fileID: 21300000, guid: bc16422a503ec43cab4ad9ddab02ff7a, type: 3}
+  - UI_100Points: {fileID: 6942090180354539176, guid: 4503311ad823bc74794868ddcb5cc61d,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
