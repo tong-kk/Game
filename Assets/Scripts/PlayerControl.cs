@@ -10,22 +10,25 @@ public class PlayerControl : MonoBehaviour
     private Animator anim;
     [HideInInspector]
     public bool jump = false;
+    public bool faceRight = true;
 
+    public AudioClip[] jumpCilps;
+    public UnityEngine.Audio.AudioMixer mixer;
+
+    private AudioSource audio;
     private bool grounded = false;
     private Transform groundCheck;
 
     private Rigidbody2D heroBody;
     [HideInInspector]
-    public bool faceRight = true;
-
     // Start is called before the first frame update
     void Start()
     {
         heroBody = GetComponent<Rigidbody2D>();
         groundCheck = transform.Find("GroundCheck");
-        //BoxCollider2D bc2d = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-        
+
+        audio = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -34,12 +37,11 @@ public class PlayerControl : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         //判断是否超过最大速度
         if (h * heroBody.velocity.x < maxSpeed)
-            // heroBody.AddForce(Vector2.right * h * moveForce);
             heroBody.velocity += Vector2.right * h * moveForce;
-        if (Mathf.Abs(heroBody.velocity.x) > maxSpeed)
-            //heroBody.velocity = new Vector2(Mathf.Sign(heroBody.velocity.x) * h * maxSpeed, heroBody.velocity.y);
+
+        if (Mathf.Abs(heroBody.velocity.x) > maxSpeed)         
             heroBody.velocity = new Vector2(Mathf.Sign(heroBody.velocity.x) * maxSpeed, heroBody.velocity.y);
-        // anim.SetFloat("speed", Mathf.Abs(h));
+
         anim.SetFloat("speed", Mathf.Abs(heroBody.velocity.x));
         if (h > 0 && !faceRight)
         {
@@ -54,6 +56,17 @@ public class PlayerControl : MonoBehaviour
             anim.SetTrigger("jump");
             heroBody.AddForce(new Vector2(0f, jumpForce));
             jump = false;
+
+            if(audio != null)
+            {
+                if (!audio.isPlaying)
+                {
+                    int i = Random.RandomRange(0, jumpCilps.Length);
+                    audio.clip = jumpCilps[i];
+                    audio.Play();
+                    mixer.SetFloat("hero", 0); //0是最大值
+                }
+            }
         }
     }
     // Update is called once per frame
