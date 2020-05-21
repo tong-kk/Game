@@ -26,6 +26,7 @@ public class PickupSpawner : MonoBehaviour
 	{
 		// 启动第一次道具产生
 		StartCoroutine(DeliverPickup());
+		Debug.Log(playerHealth.health);
 	}
 
 
@@ -40,9 +41,8 @@ public class PickupSpawner : MonoBehaviour
 
 		// 只产生炸弹
 		if (playerHealth.health >= highHealthThreshold)
-			Instantiate(pickups[0], dropPos, Quaternion.identity);
-		else if (playerHealth.health <= lowHealthThreshold)
-			// 只产生医疗包
+			Instantiate(pickups[0], dropPos, Quaternion.identity);		
+		else if (playerHealth.health <= lowHealthThreshold)	// 只产生医疗包		
 			Instantiate(pickups[1], dropPos, Quaternion.identity);
 		else
 		{

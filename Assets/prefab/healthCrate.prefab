@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 9500000}
   - component: {fileID: 5000000}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: healthCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6100000}
   - component: {fileID: 5800000}
   - component: {fileID: 1659506295533588726}
-  m_Layer: 11
+  m_Layer: 5
   m_Name: health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52c49aafb3f1ef42be410e1b413ab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBonus: 10
+  healthBonus: 20
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400004}
   - component: {fileID: 21200002}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: parachute
   m_TagString: Untagged
   m_Icon: {fileID: 0}

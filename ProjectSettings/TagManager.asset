@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - wall
   - BombPickup
+  - ground
+  - background
+  - ExplosionFX
   layers:
   - Default
   - TransparentFX

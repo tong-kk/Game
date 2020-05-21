@@ -16,7 +16,7 @@ public class Bomb : MonoBehaviour
     void Awake()
     {
         explosionFX = GameObject.FindGameObjectWithTag("ExplosionFX").GetComponent<ParticleSystem>();
-        pickupSpawner = GameObject.Find("pickupManager").GetComponent<PickupSpawner>();
+        pickupSpawner = GameObject.Find("PickupSpawner").GetComponent<PickupSpawner>();
         layBombs = GameObject.FindGameObjectWithTag("Player").GetComponent<LayBombs>();
     }
 
